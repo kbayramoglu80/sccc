@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritabanı bağlantısı - 59 Haber Kutusu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 40px 36px;
+            width: 100%;
+            max-width: 440px;
+        }
+        .card h1 {
+            font-size: 20px;
+            font-weight: 800;
+            color: #B71C1C;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        .card p {
+            font-size: 14px;
+            color: #424242;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-primary {
+            background: #D32F2F;
+            color: #fff;
+        }
+        .btn-primary:hover { background: #B71C1C; }
+        .btn-secondary {
+            background: #EEEEEE;
+            color: #424242;
+        }
+        .btn-secondary:hover { background: #E0E0E0; }
+        .muted {
+            font-size: 12px;
+            color: #757575;
+            margin-top: 24px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Veritabanına bağlanılamıyor</h1>
+        <p><%= typeof message !== 'undefined' ? message : 'MongoDB bağlantısı kurulamadı.' %></p>
+        <div class="actions">
+            <a href="javascript:location.reload()" class="btn-primary">Sayfayı yenile</a>
+            <a href="/<%= adminPath %>/cikis" class="btn-secondary">Oturumu kapat</a>
+            <a href="/" class="btn-secondary">Ana sayfa</a>
+        </div>
+        <p class="muted">Sunucu konsolunda (Atlas) IP erişim veya bağlantı dizesi hataları detaylı görünür.</p>
+    </div>
+</body>
+</html>
